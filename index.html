@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/style.css">
+    <script defer src="js/vue.js"></script>
+    <script defer src="js/main.js"></script>
+    <title>To do task</title>
+</head>
+<body>
+<div id="app">
+    <div class="add-task">
+        <h3>Добавить задачу</h3>
+        <label>Название задачи</label>
+        <input type="text">
+    </div>
+
+    <div class="container">
+        <div class="part">
+            <h4>New tasks</h4>
+            <div class="task-card">
+                <div class="task-header">
+                    <h2>Задача 1</h2>
+                    <input type="text" placeholder="Добавить задание" @keyup.enter="addTask" v-model="currentTask">
+                </div>
+                <div class="task-body">
+                    <ul>
+                        <li v-for="task in tasks"
+                            :class="{'strike' : task.isCompleted}"
+                        >
+                <span
+                        @click="task.isCompleted = !task.isCompleted"
+                >{{ task.name }}</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="part">
+            <h4>Half completed tasks</h4>
+        </div>
+        <div class="part">
+            <h4>Completed tasks</h4>
+        </div>
+    </div>
+
+
+</div>
+</body>
+</html>
