@@ -28,26 +28,20 @@
     </div>
 
     <div class="container">
-        <div class="part">
-            <h4>New tasks</h4>
-            <div class="task-card">
-                <div class="task-header">
-                    <ul>
-                        <li>
+        <div v-for="(column, columnIndex) in columns" :key="columnIndex" class="part">
+            <h4>{{column.title}}</h4>
+            <div v-for="(task, taskIndex) in column.tasks" :key="taskIndex" class="task-card">
+                <h4>{{task.taskTitle}}</h4>
+                <ul>
+                    <li v-for="(item, itemIndex) in task.items" :key="itemIndex">
+                        <input type="checkbox" v-model="item.completed"
+                               :disabled="columnBlock && columnIndex === 0 || columnIndex === 2"
+                               @change="completeTask(task, column)">
 
-                        </li>
-                    </ul>
-
-                </div>
-                <div class="task-body">
-                </div>
+                        <span :class="{ completed: item.completed }">{{ item.text }}</span>
+                    </li>
+                </ul>
             </div>
-        </div>
-        <div class="part">
-            <h4>Half completed tasks</h4>
-        </div>
-        <div class="part">
-            <h4>Completed tasks</h4>
         </div>
     </div>
 
