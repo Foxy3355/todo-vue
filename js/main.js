@@ -16,20 +16,17 @@ new Vue({
         addCard() {
             let totalItems = this.newCardItems.filter(card => card.trim() !== '').length;
             if (totalItems < 3) {
-                alert('Добавьте еще пункты. Минмальное количество пунктов для задачи 3')
-                return
+                alert('Добавьте еще пункты. Минмальное количество пунктов для создания задачи 3')
             }
 
             let newCard = {
-                title: this.newCardTitle || 'Новая заметка',
+                title: this.newCardTitle || 'Новая задача',
                 items: this.newCardItems
                     .map(text => text.trim())
                     .filter(text => text !== '')
                     .map(text => ({ text, completed: false })),
             };
-
             this.columns[0].tasks.push(newCard);
-
             this.newCardTitle = '';
             this.newCardItems = ['', '', '', '', ''];
         },
