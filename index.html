@@ -14,8 +14,9 @@
 <div id="app">
     <div class="add-task">
         <h3>Добавить задачу</h3>
-        <label>Название задачи</label>
-        <input type="text">
+        <div class="new-task">
+            <input type="text" placeholder="Название задачи">
+        </div>
     </div>
 
     <div class="container">
@@ -23,19 +24,9 @@
             <h4>New tasks</h4>
             <div class="task-card">
                 <div class="task-header">
-                    <h2>Задача 1</h2>
-                    <input type="text" placeholder="Добавить задание" @keyup.enter="addTask" v-model="currentTask">
+
                 </div>
                 <div class="task-body">
-                    <ul>
-                        <li v-for="task in tasks"
-                            :class="{'strike' : task.isCompleted}"
-                        >
-                <span
-                        @click="task.isCompleted = !task.isCompleted"
-                >{{ task.name }}</span>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>
@@ -46,7 +37,6 @@
             <h4>Completed tasks</h4>
         </div>
     </div>
-
 
 </div>
 </body>
