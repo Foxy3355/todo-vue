@@ -4,10 +4,6 @@
     box-sizing: border-box;
 }
 
-.strike{
-    text-decoration: line-through;
-}
-
 li {
     cursor: pointer;
 }
@@ -21,21 +17,10 @@ li {
     margin: 10px;
 
 }
-.task-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+
+.task-card ul{
+    padding: 5px;
 }
-.task-header h2 {
-    font-weight: bold;
-    margin: 0;
-}
-.task-status {
-    font-size: 14px;
-    color: #666;
-}
-.task-body {
-    padding-top: 20px;
 
 .container {
     display: flex;
@@ -43,6 +28,7 @@ li {
     justify-content: space-between;
     gap: 10px;
 }
+
 .part {
     width: calc(100% / 3);
     height: 100%;
@@ -56,12 +42,6 @@ h4{
     font-size: 24px;
     text-align: center;
     margin: 10px 0;
-}
-
-.task-header {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
 }
 
 .add-task {
@@ -120,7 +100,6 @@ input:focus{
 button{
     background-color: rgba(234, 179, 123, 0.42);
     color: black;
-    border: none;
     padding: 10px 20px;
     font-size: 16px;
     cursor: pointer;
@@ -129,7 +108,7 @@ button{
 }
 
 button:hover{
-    background-color: rgba(203, 156, 107, 0.75);
+    background-color: rgba(224, 190, 155, 0.96);
 }
 
 
