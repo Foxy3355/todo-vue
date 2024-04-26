@@ -15,7 +15,15 @@
     <div class="add-task">
         <h3>Добавить задачу</h3>
         <div class="new-task">
-            <input type="text" placeholder="Название задачи">
+            <input type="text" v-model="newCardTitle" placeholder="Название задачи">
+        </div>
+        <div class="task-form">
+            <ul>
+                <li v-for="(card, index) in newCardItems" :key="index">
+                    <input type="text" v-model="newCardItems[index]" :placeholder="'Задача ' + (index + 1)">
+                </li>
+            </ul>
+            <button class="add-button" @click="addCard">Добавить</button>
         </div>
     </div>
 

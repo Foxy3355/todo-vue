@@ -13,7 +13,26 @@ new Vue({
         newCardItems: ['', '', '', '', ''],
     },
     methods: {
+        addCard() {
+            let totalItems = this.newCardItems.filter(card => card.trim() !== '').length;
+            if (totalItems < 3) {
+                alert('Добавьте еще пункты. Минмальное количество пунктов для задачи 3')
+                return
+            }
 
+            let newCard = {
+                title: this.newCardTitle || 'Новая заметка',
+                items: this.newCardItems
+                    .map(text => text.trim())
+                    .filter(text => text !== '')
+                    .map(text => ({ text, completed: false })),
+            };
+
+            this.columns[0].tasks.push(newCard);
+
+            this.newCardTitle = '';
+            this.newCardItems = ['', '', '', '', ''];
+        },
     }
 
 })
